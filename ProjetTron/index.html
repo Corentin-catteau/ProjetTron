@@ -4,10 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projet Tron</title>
-    <script  src="script.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+    <h1>Projet Tron</h1>
+
+    <canvas id="canvas_dessin" width="800" height="590"></canvas>
+    <button id="touche" onclick="ouvrirPlus('modal')">Changer les touches</button>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="fermerPlus('modal')">&times;</span>
+            <h2>Touches</h2>
+            <h3>Joueur 1</h3>
+            <p>Changer les touches</p>
+            <h3>Joueur 2</h3>
+            <p>Changer les touches</p>
+        </div>
+    </div>
+<script src="script.js"></script>
 </body>
 </html>
