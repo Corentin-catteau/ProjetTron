@@ -1,3 +1,11 @@
+var keyBindings = {
+    up : "ArrowUp",
+    down : "ArrowDown",
+    left : "ArrowLeft",
+    right : "ArrowRight",
+    jump : "Space",
+}
+
 function ouvrirPlus(id) {
     document.getElementById(id).style.display = "flex";
 }
@@ -14,3 +22,9 @@ window.onclick = function(event) {
         }
     });
 };
+
+window.addEventListener('keydown', (event) => {
+    if (Object.values(keyBindings).includes(event.code)) {
+        console.log(`Key pressed: ${event.key}`);
+    }
+});
