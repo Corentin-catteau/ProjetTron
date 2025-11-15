@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const canvas = document.getElementById('canvas_dessin');
     DrawGrid(canvas);
+    move_Player1(canvas, keyBindings_Player1);
 });
 
 var keyBindings_Player1 = {
@@ -10,7 +11,6 @@ var keyBindings_Player1 = {
     right: "KeyA",
     jump: "Space"
 };
-
 var keyBindings_Player2 = {
     up: "KeyM",
     down: "KeyK",
@@ -46,6 +46,84 @@ function DrawGrid(canvas){
     }
 }
 
+function move_Player1(canvas, keyBindings){
+    const Set_Postion_player1 = new Set();
+    const ctx = canvas.getContext('2d');
+    var perdu = false
+    var speed = 10
+    var positionX = 400
+    var positionY = 0
+    var direction = 'top'
+
+    ctx.fillStyle = "#27F5BB";
+    Set_Postion_player1.add(`${positionX}, ${positionY}`);
+    ctx.fillRect(positionX, positionY, 10, 10)
+
+    /*
+    ctx.fillRect(positionX, positionY, 10, 10)
+    Set_Postion_player1.add('${positionX}, ${positionY}');
+    */
+    document.addEventListener('keydown', function(event){
+        if(Object.values(keyBindings).includes(event.code)){
+            let newX = positionX
+            let newY = positionY
+
+            switch(event.code){
+                case keyBindings.up:
+                    newY += speed
+                    direction = 'top'
+                    break;
+                case keyBindings.down:
+                    newY -= speed
+                    direction = 'down'
+                    break;
+                case keyBindings.left:
+                    newX += speed
+                    direction = 'left'
+                    break;
+                case keyBindings.right:
+                    newX -= speed
+                    direction = 'right'
+                    break;
+                case keyBindings.jump:
+                    switch(direction){
+                        case 'top':
+                            newY += speed * 2
+                            break;
+                        case 'down':
+                            newY -= speed * 2
+                            break;
+                        case 'left':
+                            newX += speed * 2
+                            break;
+                        case 'right':
+                            newX -= speed * 2
+                            break;
+                    }
+            }
+
+        if(!Set_Postion_player1.has(`${newX}, ${newY}`)){
+            positionX = newX
+            positionY = newY
+            ctx.fillRect(positionX, positionY, 10, 10)
+            Set_Postion_player1.add(`${positionX}, ${positionY}`)
+        }else{
+            perdu = true
+        }}
+        //fillRect(positionX, positionY, largeur, hauteur)
+
+        if(positionX == 800 || positionY == 590 || positionX < 0 || positionY < 0){
+            perdu = true
+        }
+
+        if(perdu){
+            alert("Joueur 1 a perdu !");
+            window.location.reload();
+        }
+    });
+
+}
+
 function ouvrirPlus(id) {
     document.getElementById(id).style.display = "flex";
 }
@@ -62,13 +140,3 @@ window.onclick = function(event) {
         }
     });
 };
-
-window.addEventListener('keydown', (event) => {
-    if (Object.values(keyBindings_Player1).includes(event.code)) {
-        console.log(`Key pressed P1: ${event.key}`);
-    }
-
-    if (Object.values(keyBindings_Player2).includes(event.code)) {
-        console.log(`Key pressed P2: ${event.key}`);
-    }
-});
