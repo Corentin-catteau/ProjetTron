@@ -14,7 +14,7 @@ h1 {
 }
 
 #canvas_dessin {
-    background-color: rgb(1, 1, 29);
+    background-color: rgb(8, 8, 51);
     margin: auto;
     display: flex;
     border: 2px solid #00eaff;
@@ -23,9 +23,8 @@ h1 {
 
 #touche{
     display: block;
-    justify-content: right;
-    margin: 25px 0 25px auto;
-    margin-right: 7rem;
+    margin: 25px auto; 
+    margin-right: 16em;
     padding: 10px 20px;
     font-size: 1em;
     background-color: #00eaff;
