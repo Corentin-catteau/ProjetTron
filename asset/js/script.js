@@ -3,21 +3,21 @@ document.addEventListener('DOMContentLoaded', () => {
     DrawGrid(canvas);
 });
 
-var keyBindings_PLayer1 = {
-    up : "z",
-    down : "w",
-    left : "d",
-    right : "a",
-    jump : "Space",
-}
+var keyBindings_Player1 = {
+    up: "KeyZ",
+    down: "KeyW",
+    left: "KeyD",
+    right: "KeyA",
+    jump: "Space"
+};
 
 var keyBindings_Player2 = {
-    up : "m",
-    down : "k",
-    left : "o",
-    right : ";",
-    jump : "Space",
-}
+    up: "KeyM",
+    down: "KeyK",
+    left: "KeyO",
+    right: "Comma",
+    jump: "Space"
+};
 
 function DrawGrid(canvas){
     const ctx = canvas.getContext('2d');
@@ -64,7 +64,11 @@ window.onclick = function(event) {
 };
 
 window.addEventListener('keydown', (event) => {
-    if (Object.values(keyBindings).includes(event.code)) {
-        console.log(`Key pressed: ${event.key}`);
+    if (Object.values(keyBindings_Player1).includes(event.code)) {
+        console.log(`Key pressed P1: ${event.key}`);
+    }
+
+    if (Object.values(keyBindings_Player2).includes(event.code)) {
+        console.log(`Key pressed P2: ${event.key}`);
     }
 });

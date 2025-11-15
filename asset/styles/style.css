@@ -55,7 +55,7 @@ h1 {
     border-radius: 10px;
 }
 
-.fermer {
+.close {
     cursor: pointer;
     font-size: 25px;
     float: right;
