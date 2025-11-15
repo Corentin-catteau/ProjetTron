@@ -1,12 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+html{
+    font-family: "Orbitron", sans-serif;
+    background-color: rgb(20, 20, 20);
+}
+
 h1 {
+    -webkit-text-stroke: 1px #00eaff;
+    text-shadow: 0 0 10px #00eaff, 0 0 20px #00eaff;
+    color : #ffffff;
     text-align: center;
+    font-size: 3em;
 }
 
 #canvas_dessin {
-    background-color: grey;
+    background-color: rgb(1, 1, 29);
+    margin: auto;
+    display: flex;
+    border: 2px solid #00eaff;
+    box-shadow: 0 0 10px #00eaff, 0 0 20px #00eaff;
+}
+
+#touche{
+    display: block;
+    justify-content: right;
+    margin: 25px 0 25px auto;
+    margin-right: 7rem;
+    padding: 10px 20px;
+    font-size: 1em;
+    background-color: #00eaff;
+    color: rgb(2, 2, 56);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 0 5px #00eaff;
 }
 
 .modal {
+    color: white;
     display: none;
     position: fixed;
     z-index: 10;
@@ -20,7 +51,7 @@ h1 {
 }
 
 .modal-content {
-    background: white;
+    background: rgb(37, 37, 37);
     padding: 20px;
     border-radius: 10px;
 }

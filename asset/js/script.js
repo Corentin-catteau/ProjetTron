@@ -1,3 +1,8 @@
+const canvas = document.getElementById('canvas_dessin');
+
+canvas.width = window.innerWidth * 0.9;
+canvas.height = window.innerHeight * 0.8;
+
 var keyBindings = {
     up : "ArrowUp",
     down : "ArrowDown",
@@ -5,6 +10,8 @@ var keyBindings = {
     right : "ArrowRight",
     jump : "Space",
 }
+
+
 
 function ouvrirPlus(id) {
     document.getElementById(id).style.display = "flex";
